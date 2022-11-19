@@ -13,7 +13,7 @@ public class FileIOManager {
 		return new String( encoded , encoding );
 	}
 	
-	public  static byte[] readFileBytes(String path) throws IOException {
+	public static byte[] readFileBytes(String path) throws IOException {
 		return Files.readAllBytes( Paths.get( path ) );
 	}
 	

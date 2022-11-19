@@ -2,10 +2,12 @@ package webserver;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.StringTokenizer;
 
 import io.FileIOManager;
@@ -85,10 +87,25 @@ public class ClientManager implements Runnable {
 	
 	
 	private void writeLog( String log ) {
-		String logMsg = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" ).format( Calendar.getInstance().getTime() ) + " >> " + client.getInetAddress().getHostAddress() + ":" + client.getPort() + " >> " + log;
-		Main.logger += logMsg + "\r\n";
-		Main.logFile.println( logMsg );
-		System.out.println( logMsg );
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = Calendar.getInstance().getTime();
+		String time = dateFormat.format(date);
+		
+		InetAddress inet = client.getInetAddress();
+//		String ip = client.getInetAddress().getHostName();
+		int postClient = client.getPort();
+		
+		String inf = time + " " + inet + " " + postClient + log;
+		
+//		String logMsg = new SimpleDateFormat( "YYYY-MM-DD HH:mm:ss" ).format( Calendar.getInstance().getTime() ) + " >> " + client.getInetAddress().getHostAddress() + ":" + client.getPort() + " >> " + log;
+//		Main.logger += logMsg + "\r\n";
+//		Main.logFile.println( logMsg );
+//		System.out.println( logMsg );
+//		Main.logFile.flush();
+		
+		Main.logger += inf + "\r\n";
+		Main.logFile.println( inf );
+		System.out.println(inf);
 		Main.logFile.flush();
 	}
 	
