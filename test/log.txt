@@ -1,0 +1,125 @@
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63939Accepting Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63940Accepting Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63939New Request: GET / HTTP/1.1hehe
+
+Host: localhost:8083
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: _ga=GA1.1.1116791670.1668516745; _gid=GA1.1.417905312.1669709064
+
+
+
+
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63939Requested file: index.html
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63939Sending Contents With MIME Type: text/html
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63939Terminating Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63939Terminated Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63940New Request: GET /styles/main.css HTTP/1.1hehe
+
+Host: localhost:8083
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://localhost:8083/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: _ga=GA1.1.1116791670.1668516745; _gid=GA1.1.417905312.1669709064
+
+
+
+
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63940/styles/main.css File Not Found in Directory
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63941Accepting Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63940Sending Contents With MIME Type: text/html
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63940Terminating Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63940Terminated Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63941New Request: GET /scripts/main.js HTTP/1.1hehe
+
+Host: localhost:8083
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://localhost:8083/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: _ga=GA1.1.1116791670.1668516745; _gid=GA1.1.417905312.1669709064
+
+
+
+
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63941/scripts/main.js File Not Found in Directory
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63941Sending Contents With MIME Type: text/html
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63941Terminating Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63941Terminated Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63942Accepting Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63942New Request: GET /manifest.json HTTP/1.1hehe
+
+Host: localhost:8083
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: manifest
+Referer: http://localhost:8083/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+
+
+
+
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63943Accepting Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63942/manifest.json File Not Found in Directory
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63942Sending Contents With MIME Type: text/html
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63942Terminating Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63942Terminated Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63943New Request: GET /images/touch/chrome-touch-icon-192x192.png HTTP/1.1hehe
+
+Host: localhost:8083
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: http://localhost:8083/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: _ga=GA1.1.1116791670.1668516745; _gid=GA1.1.417905312.1669709064; _gat=1
+
+
+
+
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63943/images/touch/chrome-touch-icon-192x192.png File Not Found in Directory
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63943Sending Contents With MIME Type: text/html
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63943Terminating Connection
+2022/11/29 15:21:41 /0:0:0:0:0:0:0:1 63943Terminated Connection

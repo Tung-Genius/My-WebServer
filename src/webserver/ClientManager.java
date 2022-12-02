@@ -26,7 +26,8 @@ public class ClientManager implements Runnable {
 	
 	private final String NOT_FOUND = "<html>\n" + "<head><title>404 Not Found</title></head>\n" +
 			                                 "<body bgcolor=\"white\">\n" +
-			                                 "<center><h1>404 Not Found</h1></center>\n" +
+			                                 "<center><h1>Not Found</h1></center>\n" +
+			                                 "<p>The requested URL was not found on this server.</p>" +
 			                                 "<hr><center>:/</center>\n" +
 			                                 "</body>\n" +
 			                                 "</html>";
@@ -52,10 +53,11 @@ public class ClientManager implements Runnable {
 			in = new InputReader( this.client.getInputStream() );
 			out = new OutputWriter( this.client.getOutputStream() );
 			String startLine = in.readNextLine();
+//			System.out.println(startLine);
 			
 			if (startLine != null) {
-				receivedContents = startLine + "\r\n" + new String( in.read() ).trim();
-				writeLog( "New Request: " + receivedContents );
+				receivedContents = startLine + "hehe\r\n\n" + new String( in.read()).trim();
+				writeLog( "New Request: " + receivedContents +"\n\n\n\n");
 			}
 			
 			if (startLine == null || startLine.isEmpty() || startLine.isBlank()) {
@@ -112,13 +114,13 @@ public class ClientManager implements Runnable {
 	
 	private void GET_Handler( String path ) throws IOException {
 		
-		if (path.equalsIgnoreCase( "/" )) path = "/index.html";
+		if (path.equalsIgnoreCase( "/travelWebsite") || path.equalsIgnoreCase( "/travelWebsite/")) path = "/travelWebsite/index.html";
 		
 		File file = new File( path.substring( 1 ) );
 		
 		if (!file.canRead()) {
 			writeLog( path + " File Not Found in Directory" );
-			HTTP_Write( "404 NOT FOUND" , "text/html" , NOT_FOUND.getBytes() );
+			HTTP_Write( "404 NOT FOUND" , "text/html" , NOT_FOUND.getBytes());
 		} else {
 			writeLog( "Requested file: " + file.getPath() );
 			HTTP_Write( "200 OK" , Files.probeContentType( file.toPath() ) , FileIOManager.readFileBytes( file.getPath() ) );

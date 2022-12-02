@@ -1,11 +1,13 @@
 package views;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
@@ -16,7 +18,6 @@ public class ReadFileView extends JFrame implements ActionListener {
 	Container cont;
 	JTextArea ta;
 	JButton btnSave;
-//	String content;
 	
 	public ReadFileView(String content) throws HeadlessException, IOException {
 		
@@ -33,9 +34,9 @@ public class ReadFileView extends JFrame implements ActionListener {
 		cont.add(ta);
 		cont.add(btnSave, "South");
 		
-		this.setSize(400, 500);
+		this.setSize(300, 300);
 //		this.setVisible(true);
-		this.setLocation(300, 300);
+		this.setLocation(400, 300);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
 
@@ -43,12 +44,18 @@ public class ReadFileView extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("Save")) {
 			String content = ta.getText();
-			try {
-				ReadFile.saveFile(content, "./config.properties");
-			} catch (IOException e1) {
-				e1.printStackTrace();
+			if(content.contains("post =")) {
+				try {
+					ReadFile.saveFile(content, "./config.properties");
+					System.exit(0);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				this.setVisible(false);
 			}
-			this.setVisible(false);
+			else {
+				this.setVisible(false);
+			}
 		}
 	}
 }
