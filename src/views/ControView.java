@@ -12,11 +12,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import io.ReadFile;
+import webserver.ClientManager;
 
 public class ControView extends JFrame implements ActionListener{
-	JPanel panel = new JPanel();
-	JButton btnStop, btnPost, btnFileHt, btnAdmin;
-	JFileChooser chooser;
+	private JPanel panel = new JPanel();
+	private JButton btnStop, btnPost, btnFileHt, btnAdmin;
+	private JFileChooser chooser;
 	public ControView(String title) throws HeadlessException {
 		super(title);
 		
@@ -63,7 +64,18 @@ public class ControView extends JFrame implements ActionListener{
 //			chooser.setCurrentDirectory(new java.io.File("."));
 			chooser.setCurrentDirectory(file);
 			chooser.setDialogTitle("Chon file");
-			chooser.showOpenDialog(this);
+			if(chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+				String fileName = chooser.getSelectedFile().getAbsolutePath();
+				String content;
+				try {
+					content = ReadFile.readFile(fileName);
+					ReadFileView rfw = new ReadFileView(content);
+					rfw.setVisible(true);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+//			chooser.showOpenDialog(this);
 		}
 		if(e.getActionCommand().equals("Post")) {
 			try {

@@ -53,16 +53,13 @@ public class ClientManager implements Runnable {
 			in = new InputReader( this.client.getInputStream() );
 			out = new OutputWriter( this.client.getOutputStream() );
 			String startLine = in.readNextLine();
-//			System.out.println(startLine);
 			
 			if (startLine != null) {
-				receivedContents = startLine + "hehe\r\n\n" + new String( in.read()).trim();
-				writeLog( "New Request: " + receivedContents +"\n\n\n\n");
+				receivedContents = startLine + "\r\n" + new String( in.read()).trim();
+				writeLog( "New Request: " + receivedContents);
 			}
 			
 			if (startLine == null || startLine.isEmpty() || startLine.isBlank()) {
-//				INVALID_Handler();
-//				HTTP_Write( "400 BAD REQUEST",null,null );
 				closeConnection();
 			} else {
 				StringTokenizer stk;
@@ -92,19 +89,10 @@ public class ClientManager implements Runnable {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = Calendar.getInstance().getTime();
 		String time = dateFormat.format(date);
-		
 		InetAddress inet = client.getInetAddress();
 //		String ip = client.getInetAddress().getHostName();
 		int postClient = client.getPort();
-		
-		String inf = time + " " + inet + " " + postClient + log;
-		
-//		String logMsg = new SimpleDateFormat( "YYYY-MM-DD HH:mm:ss" ).format( Calendar.getInstance().getTime() ) + " >> " + client.getInetAddress().getHostAddress() + ":" + client.getPort() + " >> " + log;
-//		Main.logger += logMsg + "\r\n";
-//		Main.logFile.println( logMsg );
-//		System.out.println( logMsg );
-//		Main.logFile.flush();
-		
+		String inf = time + " " + inet + " " + postClient + " " + log;
 		Main.logger += inf + "\r\n";
 		Main.logFile.println( inf );
 		System.out.println(inf);
@@ -113,11 +101,8 @@ public class ClientManager implements Runnable {
 	
 	
 	private void GET_Handler( String path ) throws IOException {
-		
-		if (path.equalsIgnoreCase( "/travelWebsite") || path.equalsIgnoreCase( "/travelWebsite/")) path = "/travelWebsite/index.html";
-		
-		File file = new File( path.substring( 1 ) );
-		
+		if (path.equalsIgnoreCase( "/")) path = "/index.html";
+		File file = new File( path.substring( 1 ));
 		if (!file.canRead()) {
 			writeLog( path + " File Not Found in Directory" );
 			HTTP_Write( "404 NOT FOUND" , "text/html" , NOT_FOUND.getBytes());
@@ -132,6 +117,8 @@ public class ClientManager implements Runnable {
 		writeLog( "Received Form Data: " + data );
 		String postReply = new String( FileIOManager.readFileBytes( "http_post.html" ) ).replaceFirst( "<h2> Post-> </h2>" , "<h2> Post->\"" + data + "\" </h2>" );
 		HTTP_Write( "200 OK" , "text/html" , postReply.getBytes() );
+		
+		
 	}
 	
 	private void INVALID_Handler() throws IOException {
@@ -142,7 +129,6 @@ public class ClientManager implements Runnable {
 	
 	private void HTTP_Write( String status , String MMI , byte[] contents ) throws IOException {
 		if (MMI != null) writeLog( "Sending Contents With MIME Type: " + MMI );
-		
 		out.writeLine( "HTTP/1.1 " + status );
 		if (MMI != null) {
 			out.writeLine( "Content-Type: " + MMI );
@@ -151,15 +137,14 @@ public class ClientManager implements Runnable {
 		}
 		out.writeLine();
 		if (contents != null) out.write( contents );
-		
 		closeConnection();
 	}
 	
 	void closeConnection() throws IOException {
-		writeLog( "Terminating Connection" );
+		writeLog( "Terminating Connection");
 		out.close();
 		in.close();
 		client.close();
-		writeLog( "Terminated Connection" );
+		writeLog( "Terminated Connection" + "\n\n");
 	}
 }
